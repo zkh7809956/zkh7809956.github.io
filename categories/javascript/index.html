@@ -1,185 +1,27 @@
-<!DOCTYPE html>
-<html lang="id">
-
-    <head>
-    
-    <meta charset="utf-8">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    
-    <title>Category: javascript | 赵牧一的象牙塔</title>
-    
-    
-    
-    <link rel="stylesheet" href="/css/main.css">
-
-    <link rel="icon" type="image/png" href="/img/fav.png">
-
-    <link rel="canonical" href="/categories/javascript/index.html">
-    
-</head>
-    
-<body>
-
-    <header class="site-header">
-    
-    <nav class="nav-page">
-    
-    <div class="row">
-        
-	    <ul>
-            
-	        
-            
-	        <li><a href="/">Home</a></li>
-            
-	        
-            
-	        <li><a href="/archives">Sitemap</a></li>
-            
-	        
-            
-	    </ul>
-        
-    </div>
-    
-</nav>
-    
-    <div class="site-header-main">
-    
-        <div class="row">
-
-            <h1><a href="/">赵牧一的象牙塔</a></h1>
-
-            
-
-                <p>华华有颗坚强的心--王者五集团上海地区总代理</p>
-
-            
-
-        </div>
-        
-    </div>
-    
-     
-
-<nav class="nav-cat">
-
-	<div class="row">
-
-		<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li></ul>
-		
-	</div>
-
-</nav>
-
- 
-    
-</header>
-
-    <div id="content" class="site-content">
-        
-        <div class="row content-archive">
-    
-    <h2 class="archive-title">javascript</h2>
-    
-    <ul class="archive-post">
-        
-        
-        
-            <li>
-                
-                <p class="archive-date"><a href="/2017/08/17/我的博客/">2017-08-17</a></p>
-                
-                
-                
-                <h3><a href="/2017/08/17/我的博客/">我的第五篇博客</a></h3>
-                
-                
-            </li>
-        
-        
-        
-            <li>
-                
-                <p class="archive-date"><a href="/2017/08/17/笔记/">2017-08-17</a></p>
-                
-                
-                
-                <h3><a href="/2017/08/17/笔记/">我的第五篇博客</a></h3>
-                
-                
-            </li>
-        
-        
-        
-            <li>
-                
-                <p class="archive-date"><a href="/2017/08/16/我的第一篇博客/">2017-08-16</a></p>
-                
-                
-                
-                <h3><a href="/2017/08/16/我的第一篇博客/">我的第一篇博客</a></h3>
-                
-                
-            </li>
-        
-        
-        
-            <li>
-                
-                <p class="archive-date"><a href="/2016/08/16/我的第二篇博客 /">2016-08-16</a></p>
-                
-                
-                
-                <h3><a href="/2016/08/16/我的第二篇博客 /">我的第一篇博客</a></h3>
-                
-                
-            </li>
-        
-        
-        
-            <li>
-                
-                <p class="archive-date"><a href="/2016/08/16/我的第四篇博客/">2016-08-16</a></p>
-                
-                
-                
-                <h3><a href="/2016/08/16/我的第四篇博客/">我的第四篇博客</a></h3>
-                
-                
-            </li>
-        
-        
-        
-    </ul>
-
-    <nav class="archive-nav">
-    
-    
-
-    
-    
-</nav>
-    
-</div>
-        
-    </div>
-
-    <footer class="site-footer">
-    
-    <div class="row">
-            
-        <p class="cr">&copy; 2017 赵坤鸿</p>
-        
-        <p class="theme">Powered: <a href="http://hexo.io/">Hexo</a>, Theme: <a href="http://nadymain.github.io/">NadyMain</a></p>
-        
-    </div>
-    
-</footer>
-
-</body>
-</html>
+extends ./_partial/layout.pug
+block content
+  include ./_partial/page_header.pug
+  ul.post-list(style='max-width:'+ theme.content_width +'px')
+    each post in page.posts.data
+      li 
+        p.date #{time(post.date, 'LL')}
+        if post.title
+          h4.title
+            a(href=url_for(post.path)) #{post.title}
+          .excerpt !{post.excerpt}
+        else
+          .no-title !{post.content}
+        if post.photos && post.photos.length
+          a(href=url_for(post.path))
+            img.photo(src=post.photos[0])
+        ul.meta
+          li
+            i.icon.icon-author
+            | #{config.author}
+          li
+            i.icon.icon-clock
+            | #{parseInt(post.content ? post.content.length/900 : 0)} Minutes
+          li
+            i.icon.icon-category
+            | !{list_categories(post.categories)}
+  include ./_partial/pagination.pug

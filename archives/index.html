@@ -1,135 +1,27 @@
-<!DOCTYPE html>
-<html lang="id">
-
-    <head>
-    
-    <meta charset="utf-8">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    
-    <title>Archive | 赵牧一的象牙塔</title>
-    
-    
-    
-    <link rel="stylesheet" href="/css/main.css">
-
-    <link rel="icon" type="image/png" href="/img/fav.png">
-
-    <link rel="canonical" href="/archives/index.html">
-    
-</head>
-    
-<body>
-
-    <header class="site-header">
-    
-    <nav class="nav-page">
-    
-    <div class="row">
-        
-	    <ul>
-            
-	        
-            
-	        <li><a href="/">Home</a></li>
-            
-	        
-            
-	        <li><a href="/archives">Sitemap</a></li>
-            
-	        
-            
-	    </ul>
-        
-    </div>
-    
-</nav>
-    
-    <div class="site-header-main">
-    
-        <div class="row">
-
-            <h1><a href="/">赵牧一的象牙塔</a></h1>
-
-            
-
-                <p>华华有颗坚强的心--王者五集团上海地区总代理</p>
-
-            
-
-        </div>
-        
-    </div>
-    
-     
-
-<nav class="nav-cat">
-
-	<div class="row">
-
-		<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a></li></ul>
-		
-	</div>
-
-</nav>
-
- 
-    
-</header>
-
-    <div id="content" class="site-content">
-        
-        
-
-<div class="row content-archive">
-    
-    <h2 class="archive-title">Sitemap</h2>
-    
-    <div class="col-1-3">
-        
-        <h3>Archives</h3>
-        
-        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li></ul>
-        
-    </div>
-    
-    <div class="col-1-3">
-        
-        <h3>Categories</h3>
-        
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li></ul>
-        
-    </div>
-    
-    <div class="col-1-3">
-        
-        <h3>Tags</h3>
-        
-        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git命令/">git命令</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">3</span></li></ul>
-        
-    </div>
-    
-</div>
-
-
-
-        
-    </div>
-
-    <footer class="site-footer">
-    
-    <div class="row">
-            
-        <p class="cr">&copy; 2017 赵坤鸿</p>
-        
-        <p class="theme">Powered: <a href="http://hexo.io/">Hexo</a>, Theme: <a href="http://nadymain.github.io/">NadyMain</a></p>
-        
-    </div>
-    
-</footer>
-
-</body>
-</html>
+extends ./_partial/layout.pug
+block content
+  include ./_partial/page_header.pug
+  ul.post-list(style='max-width:'+ theme.content_width +'px')
+    each post in page.posts.data
+      li 
+        p.date #{time(post.date, 'LL')}
+        if post.title
+          h4.title
+            a(href=url_for(post.path)) #{post.title}
+          .excerpt !{post.excerpt}
+        else
+          .no-title !{post.content}
+        if post.photos && post.photos.length
+          a(href=url_for(post.path))
+            img.photo(src=post.photos[0])
+        ul.meta
+          li
+            i.icon.icon-author
+            | #{config.author}
+          li
+            i.icon.icon-clock
+            | #{parseInt(post.content ? post.content.length/900 : 0)} Minutes
+          li
+            i.icon.icon-category
+            | !{list_categories(post.categories)}
+  include ./_partial/pagination.pug

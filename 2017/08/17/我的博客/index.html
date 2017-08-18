@@ -238,7 +238,7 @@
 <h2 id="创建远程仓库（了解）"><a href="#创建远程仓库（了解）" class="headerlink" title="创建远程仓库（了解）"></a>创建远程仓库（了解）</h2><ul>
 <li>创建远程仓库</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare   # 创建一个裸仓库</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">git init --bare   # 创建一个裸仓库</div></pre></td></tr></table></figure>
 <ul>
 <li>远程仓库是一个裸仓库，只支持push、clone、pull等操作</li>
 <li>裸仓库的目的是用来管理版本的共享。</li>
@@ -277,7 +277,7 @@
 </ul>
 <p><a href="https://github.com/" target="_blank" rel="external">github官网</a></p>
 <p><a href="https://git.oschina.net/" target="_blank" rel="external">开源中国-git</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。</div><div class="line">2. github免费，代码所有人都能看到，但是只有你自己能修改。付费的可以隐藏。</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1. gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。</div><div class="line">2. github免费，代码所有人都能看到，但是只有你自己能修改。付费的可以隐藏。</div></pre></td></tr></table></figure>
 <p>在github上创建一个项目，获取到仓库的地址。然后就可以将本地的代码推送到远程的服务器上。</p>
 <h2 id="SSH免登陆"><a href="#SSH免登陆" class="headerlink" title="SSH免登陆"></a>SSH免登陆</h2><p>每次push代码，都需要输入用户名跟密码，非常的麻烦。因此我们可以配置一个SSH免登陆。</p>
 <ul>
@@ -318,23 +318,23 @@
 <h2 id="hexo创建博客（了解）"><a href="#hexo创建博客（了解）" class="headerlink" title="hexo创建博客（了解）"></a>hexo创建博客（了解）</h2><h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><ul>
 <li>安装hexo</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div><div class="line"></div><div class="line">hexo -v  # 查看hexo的版本信息</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">npm install -g hexo</div><div class="line"></div><div class="line">hexo -v  # 查看hexo的版本信息</div></pre></td></tr></table></figure>
 <ul>
 <li>初始化博客</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 新建一个目录  blog</div><div class="line">hexo init  # 初始化</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"># 新建一个目录  blog</div><div class="line">hexo init  # 初始化</div></pre></td></tr></table></figure>
 <ul>
 <li>生成静态页面</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate   # 生成静态页面	</div><div class="line">hexo g          # 生成静态页面（简写）</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">hexo generate   # 生成静态页面	</div><div class="line">hexo g          # 生成静态页面（简写）</div></pre></td></tr></table></figure>
 <ul>
 <li>启动服务</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server   # 启动服务</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">hexo server   # 启动服务</div></pre></td></tr></table></figure>
 <ul>
 <li>访问站点</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http:<span class="comment">//localhost:4000/  # 通过这个地址就可以访问了</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">http:<span class="comment">//localhost:4000/  # 通过这个地址就可以访问了</span></div></pre></td></tr></table></figure>
 <h3 id="hexo常见命令"><a href="#hexo常见命令" class="headerlink" title="hexo常见命令"></a>hexo常见命令</h3><ul>
 <li><code>hexo n &#39;博客标题&#39;</code>创建一篇新的博客</li>
 <li><code>hexo g</code> 生成博客</li>

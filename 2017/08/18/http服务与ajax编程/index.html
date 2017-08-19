@@ -1,267 +1,203 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
+    
+
+    
+
+    
+
+
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    
+    
+    <title>http服务与ajax编程 | 赵牧一的象牙塔 | 华华有颗坚强的心--王者五集团上海地区总代理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Http协议,ajax,json,php,同源与跨域">
+    <meta name="description" content="服务器 前言：通俗的讲，能够提供某种服务的机器（计算机）称为服务器  服务器软件 使计算机具备提供某种服务能力的应用软件，称为服务器软件，通过安装相应的服务软件，然后进行配置后就可以使计算具备了提供某种服务的能力。  常见的服务器软件有：  文件服务器：Server-U、FileZilla、VsFTP等（FTP是File Transfer Protocol文件传输协议）； 数据库服务器：oracl">
+<meta name="keywords" content="Http协议,ajax,json,php,同源与跨域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http服务与ajax编程">
+<meta property="og:url" content="zkh7809956.github.io/2017/08/18/http服务与ajax编程/index.html">
+<meta property="og:site_name" content="赵牧一的象牙塔">
+<meta property="og:description" content="服务器 前言：通俗的讲，能够提供某种服务的机器（计算机）称为服务器  服务器软件 使计算机具备提供某种服务能力的应用软件，称为服务器软件，通过安装相应的服务软件，然后进行配置后就可以使计算具备了提供某种服务的能力。  常见的服务器软件有：  文件服务器：Server-U、FileZilla、VsFTP等（FTP是File Transfer Protocol文件传输协议）； 数据库服务器：oracl">
+<meta property="og:updated_time" content="2017-08-19T05:48:11.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http服务与ajax编程">
+<meta name="twitter:description" content="服务器 前言：通俗的讲，能够提供某种服务的机器（计算机）称为服务器  服务器软件 使计算机具备提供某种服务能力的应用软件，称为服务器软件，通过安装相应的服务软件，然后进行配置后就可以使计算具备了提供某种服务的能力。  常见的服务器软件有：  文件服务器：Server-U、FileZilla、VsFTP等（FTP是File Transfer Protocol文件传输协议）； 数据库服务器：oracl">
+    
+        <link rel="alternate" type="application/atom+xml" title="赵牧一的象牙塔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
+    <!-- custom head -->
     
 
-    <title>http服务与ajax编程 | 华华有颗坚强的心--王者五集团上海地区总代理</title>
-    <meta name="author" content="赵坤鸿">
-    
-    <meta name="description" content="华华有颗坚强的心--王者五集团上海地区总代理">
-    
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <meta property="og:title" content="http服务与ajax编程"/>
-    <meta property="og:site_name" content="赵牧一的象牙塔"/>
-
-    
-    <meta property="og:image" content=""/>
-    
-
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="alternate" href="/atom.xml" title="赵牧一的象牙塔" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/lib/materialize.min.css">
-    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-
-    
-        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
-    
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
-
 <body>
-    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+    <div id="loading" class="active"></div>
 
-    <nav class="indigo">
-    <div class="nav-wrapper">
-        <a href="#" data-activates="main-menu" class="button-collapse">
-            <i class="fa fa-navicon"></i>
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avater.jpg">
         </a>
-        <div class="">
-            <a href="/" class="brand-logo hide-on-med-and-down">赵牧一的象牙塔</a>
-            <ul class="right hide-on-med-and-down">
-                
-                    <li>
-                        <a class="menu-home " href="/" >
-                            <i class="fa fa-home "></i>
-                            
-                            首页
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-archive " href="/archives" >
-                            <i class="fa fa-archive "></i>
-                            
-                            归档
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                            <i class="fa fa-bookmark "></i>
-                            
-                            分类
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-reading " href="/reading" >
-                            <i class="fa fa-book "></i>
-                            
-                            读书
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-about " href="/about" >
-                            <i class="fa fa-user "></i>
-                            
-                            关于
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-search modal-trigger " href="#search" >
-                            <i class="fa fa-search "></i>
-                            
-                            搜索
-                        </a>
-                    </li>
-                
-            </ul>
-            <div>
-    <ul class="side-nav indigo darken-1" id="main-menu">
+        <hgroup class="introduce">
+          <h5 class="nickname">赵坤鸿</h5>
+          <a href="mailto:zkh7809956@163.com" title="zkh7809956@163.com" class="mail">zkh7809956@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
         
-
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-home " href="/" >
-                    <i class="fa fa-home "></i>
-                    
-                    首页
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-archive " href="/archives" >
-                    <i class="fa fa-archive "></i>
-                    
-                    归档
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                    <i class="fa fa-bookmark "></i>
-                    
-                    分类
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-reading " href="/reading" >
-                    <i class="fa fa-book "></i>
-                    
-                    读书
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-about " href="/about" >
-                    <i class="fa fa-user "></i>
-                    
-                    关于
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zkh7809956" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
             </li>
         
-            <li class="no-padding">
-                <a class="waves-effect menu-search modal-trigger " href="#search" >
-                    <i class="fa fa-search "></i>
-                    
-                    搜索
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
             </li>
         
-    </ul>
-
-    <ul class="side-nav indigo darken-1" id="category-menu">
-    
-
-            
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/javascript/">
-                    javascript <span class="right">5 篇</span></a>
-                </a>
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
             </li>
-
         
+      </ul>
+    </div>
+  </div>
+</aside>
 
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/AJAX/">
-                    AJAX <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">http服务与ajax编程</div>
         
-
-            <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/AMD/">
-                    AMD <span class="right">1 篇</span></a>
-                </a>
-            </li>
-
-        
-
-    </ul>
-</div>
-
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
         </div>
-    </div>
-</nav>
-
-<div id="search" class="modal search-modal">
-    <div class="row">
-        <div class="input-field col s12">
-              <input id="search-input" type="text">
-              <label for="search-input">搜索</label>
-        </div>
-
-    </div>
-    <div id="search-result" class="search-result col s12">
-
-    </div>
-</div>
-
-
-    <main>
-        <div class="container main-container">
-    <nav class="page-nav hide-on-small-only">
-    <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（分类目录）</span>
         
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">http服务与ajax编程</h1>
+        <h5 class="subtitle">
             
-    
-    
-    <a class="breadcrumb" href="/categories/AJAX/">AJAX</a>
+                <time datetime="2017-08-18T08:59:08.000Z" itemprop="datePublished" class="page-time">
+  2017-08-18
+</time>
 
 
-        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AJAX/">AJAX</a></li></ul>
 
-        
-    </div>
-</nav>
-
-<article>
-    <div class="card">
-        <div class="card-content">
             
+        </h5>
+    </div>
 
-            <div class="article-title">
-                
-    
-        <h1>http服务与ajax编程</h1>
     
 
 
-            </div>
-            <time class="pink-link-context" datetime="2017-08-18T08:59:08.000Z"><a href="/2017/08/18/http服务与ajax编程/">2017-08-18</a></time>
+</header>
 
-            <span id="busuanzi_container_page_pv" class="read-times-container">
-    <i class="fa fa-eye"></i>
-    <span id="busuanzi_value_page_pv"></span>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#服务器"><span class="post-toc-text">服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务器软件"><span class="post-toc-text">服务器软件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务器类型"><span class="post-toc-text">服务器类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTTP服务器"><span class="post-toc-text">HTTP服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务器总结"><span class="post-toc-text">服务器总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#客户端"><span class="post-toc-text">客户端</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#客户端软件"><span class="post-toc-text">客户端软件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务器与客户端的关系"><span class="post-toc-text">服务器与客户端的关系</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#软件架构"><span class="post-toc-text">软件架构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CS架构"><span class="post-toc-text">CS架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BS架构"><span class="post-toc-text">BS架构</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#网络基础"><span class="post-toc-text">网络基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ip地址"><span class="post-toc-text">ip地址</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#域名"><span class="post-toc-text">域名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DNS服务器"><span class="post-toc-text">DNS服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#端口"><span class="post-toc-text">端口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本地hosts"><span class="post-toc-text">本地hosts</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搭建HTTP服务器"><span class="post-toc-text">搭建HTTP服务器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#phpStudy介绍"><span class="post-toc-text">phpStudy介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#phpStudy的安装"><span class="post-toc-text">phpStudy的安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#phpStudy的错误解决"><span class="post-toc-text">phpStudy的错误解决</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭iis服务器"><span class="post-toc-text">关闭iis服务器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提示缺少vc9-库文件"><span class="post-toc-text">提示缺少vc9 库文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭防火墙"><span class="post-toc-text">关闭防火墙</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#phpStudy的配置"><span class="post-toc-text">phpStudy的配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改网站目录与默认首页"><span class="post-toc-text">修改网站目录与默认首页</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#虚拟主机配置"><span class="post-toc-text">虚拟主机配置</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PHP基础"><span class="post-toc-text">PHP基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#php初体验"><span class="post-toc-text">php初体验</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#变量"><span class="post-toc-text">变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据类型"><span class="post-toc-text">数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单数据类型"><span class="post-toc-text">简单数据类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组"><span class="post-toc-text">数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对象"><span class="post-toc-text">对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#函数"><span class="post-toc-text">函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语句"><span class="post-toc-text">语句</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断语句"><span class="post-toc-text">判断语句</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#循环语句"><span class="post-toc-text">循环语句</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表单处理"><span class="post-toc-text">表单处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件上传"><span class="post-toc-text">文件上传</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP常用函数"><span class="post-toc-text">PHP常用函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态页面"><span class="post-toc-text">动态页面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用php动态渲染页面"><span class="post-toc-text">使用php动态渲染页面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#include"><span class="post-toc-text">include</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#http协议"><span class="post-toc-text">http协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请求与请求报文"><span class="post-toc-text">请求与请求报文</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#响应与响应报文"><span class="post-toc-text">响应与响应报文</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AJAX"><span class="post-toc-text">AJAX</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#同步与异步"><span class="post-toc-text">同步与异步</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#XMLHttpRequest"><span class="post-toc-text">XMLHttpRequest</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发送get请求"><span class="post-toc-text">发送get请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发送post请求"><span class="post-toc-text">发送post请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取响应"><span class="post-toc-text">获取响应</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#案例"><span class="post-toc-text">案例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据交互"><span class="post-toc-text">数据交互</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML"><span class="post-toc-text">XML</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JSON数据"><span class="post-toc-text">JSON数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#php处理json"><span class="post-toc-text">php处理json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JS处理json"><span class="post-toc-text">JS处理json</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#eval方法"><span class="post-toc-text">eval方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容性处理"><span class="post-toc-text">兼容性处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#封装ajax工具函数"><span class="post-toc-text">封装ajax工具函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数提取"><span class="post-toc-text">参数提取</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数检测"><span class="post-toc-text">参数检测</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#完整版"><span class="post-toc-text">完整版</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jQuery中的ajax方法"><span class="post-toc-text">jQuery中的ajax方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ajax"><span class="post-toc-text">$.ajax</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他api-了解"><span class="post-toc-text">其他api(了解)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#接口化开发"><span class="post-toc-text">接口化开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取短信验证码接口"><span class="post-toc-text">获取短信验证码接口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注册接口"><span class="post-toc-text">注册接口</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#模板引擎"><span class="post-toc-text">模板引擎</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么要使用模板引擎"><span class="post-toc-text">为什么要使用模板引擎</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常见的模板引擎"><span class="post-toc-text">常见的模板引擎</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#artTemplate的使用"><span class="post-toc-text">artTemplate的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#artTemplate入门"><span class="post-toc-text">artTemplate入门</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#artTemplate语法"><span class="post-toc-text">artTemplate语法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#瀑布流案例"><span class="post-toc-text">瀑布流案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#封装jQuery瀑布流插件"><span class="post-toc-text">封装jQuery瀑布流插件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#瀑布流完整版"><span class="post-toc-text">瀑布流完整版</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#综合案例"><span class="post-toc-text">综合案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据库初始化"><span class="post-toc-text">数据库初始化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#页面初始化"><span class="post-toc-text">页面初始化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bootstrap-paginator分页插件的使用"><span class="post-toc-text">bootstrap-paginator分页插件的使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#同源与跨域"><span class="post-toc-text">同源与跨域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#同源"><span class="post-toc-text">同源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同源策略的基本概念"><span class="post-toc-text">同源策略的基本概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同源策略的目的"><span class="post-toc-text">同源策略的目的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同源策略的限制范围"><span class="post-toc-text">同源策略的限制范围</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#跨域"><span class="post-toc-text">跨域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jsonp"><span class="post-toc-text">jsonp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jsonp演化过程1"><span class="post-toc-text">jsonp演化过程1</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jsonp演化过程2"><span class="post-toc-text">jsonp演化过程2</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jsonp演化过程3"><span class="post-toc-text">jsonp演化过程3</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jsonp演化过程4"><span class="post-toc-text">jsonp演化过程4</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jquery对于jsonp的封装"><span class="post-toc-text">jquery对于jsonp的封装</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#XMLHttpRequest2-0"><span class="post-toc-text">XMLHttpRequest2.0</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#timeout设置超时"><span class="post-toc-text">timeout设置超时</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#formData管理表单数据"><span class="post-toc-text">formData管理表单数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件上传-1"><span class="post-toc-text">文件上传</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#显示文件进度信息"><span class="post-toc-text">显示文件进度信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#跨域资源共享-CORS"><span class="post-toc-text">跨域资源共享(CORS)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cors的使用"><span class="post-toc-text">cors的使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CORS的具体流程（了解）"><span class="post-toc-text">CORS的具体流程（了解）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jsonp与cors的对比"><span class="post-toc-text">jsonp与cors的对比</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他的跨域手段（没卵用）"><span class="post-toc-text">其他的跨域手段（没卵用）</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-http服务与ajax编程"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">http服务与ajax编程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-18 16:59:08" datetime="2017-08-18T08:59:08.000Z"  itemprop="datePublished">2017-08-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/AJAX/">AJAX</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
-            
-    <div class="tags-row">
-        
-            <a href="/tags/Http协议/" class="chip pink lighten-1">Http协议</a>
-        
-            <a href="/tags/ajax/" class="chip pink lighten-1">ajax</a>
-        
-            <a href="/tags/json/" class="chip pink lighten-1">json</a>
-        
-            <a href="/tags/php/" class="chip pink lighten-1">php</a>
-        
-            <a href="/tags/同源与跨域/" class="chip pink lighten-1">同源与跨域</a>
-        
-    </div>
 
-
-            <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#服务器"><span class="section table-of-contents-text">服务器</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#服务器软件"><span class="section table-of-contents-text">服务器软件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#服务器类型"><span class="section table-of-contents-text">服务器类型</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#HTTP服务器"><span class="section table-of-contents-text">HTTP服务器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#服务器总结"><span class="section table-of-contents-text">服务器总结</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#客户端"><span class="section table-of-contents-text">客户端</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#客户端软件"><span class="section table-of-contents-text">客户端软件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#服务器与客户端的关系"><span class="section table-of-contents-text">服务器与客户端的关系</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#软件架构"><span class="section table-of-contents-text">软件架构</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#CS架构"><span class="section table-of-contents-text">CS架构</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#BS架构"><span class="section table-of-contents-text">BS架构</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#网络基础"><span class="section table-of-contents-text">网络基础</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#ip地址"><span class="section table-of-contents-text">ip地址</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#域名"><span class="section table-of-contents-text">域名</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#DNS服务器"><span class="section table-of-contents-text">DNS服务器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#端口"><span class="section table-of-contents-text">端口</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#本地hosts"><span class="section table-of-contents-text">本地hosts</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#搭建HTTP服务器"><span class="section table-of-contents-text">搭建HTTP服务器</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#phpStudy介绍"><span class="section table-of-contents-text">phpStudy介绍</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#phpStudy的安装"><span class="section table-of-contents-text">phpStudy的安装</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#phpStudy的错误解决"><span class="section table-of-contents-text">phpStudy的错误解决</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#关闭iis服务器"><span class="section table-of-contents-text">关闭iis服务器</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#提示缺少vc9-库文件"><span class="section table-of-contents-text">提示缺少vc9 库文件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#关闭防火墙"><span class="section table-of-contents-text">关闭防火墙</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#phpStudy的配置"><span class="section table-of-contents-text">phpStudy的配置</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#修改网站目录与默认首页"><span class="section table-of-contents-text">修改网站目录与默认首页</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#虚拟主机配置"><span class="section table-of-contents-text">虚拟主机配置</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#PHP基础"><span class="section table-of-contents-text">PHP基础</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#php初体验"><span class="section table-of-contents-text">php初体验</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#变量"><span class="section table-of-contents-text">变量</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#数据类型"><span class="section table-of-contents-text">数据类型</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#简单数据类型"><span class="section table-of-contents-text">简单数据类型</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#数组"><span class="section table-of-contents-text">数组</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#对象"><span class="section table-of-contents-text">对象</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#函数"><span class="section table-of-contents-text">函数</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#语句"><span class="section table-of-contents-text">语句</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#判断语句"><span class="section table-of-contents-text">判断语句</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#循环语句"><span class="section table-of-contents-text">循环语句</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#表单处理"><span class="section table-of-contents-text">表单处理</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#文件上传"><span class="section table-of-contents-text">文件上传</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#PHP常用函数"><span class="section table-of-contents-text">PHP常用函数</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#动态页面"><span class="section table-of-contents-text">动态页面</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#使用php动态渲染页面"><span class="section table-of-contents-text">使用php动态渲染页面</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#include"><span class="section table-of-contents-text">include</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#总结"><span class="section table-of-contents-text">总结</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#http协议"><span class="section table-of-contents-text">http协议</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#请求与请求报文"><span class="section table-of-contents-text">请求与请求报文</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#响应与响应报文"><span class="section table-of-contents-text">响应与响应报文</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#AJAX"><span class="section table-of-contents-text">AJAX</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#同步与异步"><span class="section table-of-contents-text">同步与异步</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#XMLHttpRequest"><span class="section table-of-contents-text">XMLHttpRequest</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#发送get请求"><span class="section table-of-contents-text">发送get请求</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#发送post请求"><span class="section table-of-contents-text">发送post请求</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#获取响应"><span class="section table-of-contents-text">获取响应</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#案例"><span class="section table-of-contents-text">案例</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#数据交互"><span class="section table-of-contents-text">数据交互</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#XML"><span class="section table-of-contents-text">XML</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#JSON数据"><span class="section table-of-contents-text">JSON数据</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#php处理json"><span class="section table-of-contents-text">php处理json</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#JS处理json"><span class="section table-of-contents-text">JS处理json</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#eval方法"><span class="section table-of-contents-text">eval方法</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#兼容性处理"><span class="section table-of-contents-text">兼容性处理</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#封装ajax工具函数"><span class="section table-of-contents-text">封装ajax工具函数</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#参数提取"><span class="section table-of-contents-text">参数提取</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#参数检测"><span class="section table-of-contents-text">参数检测</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#完整版"><span class="section table-of-contents-text">完整版</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#jQuery中的ajax方法"><span class="section table-of-contents-text">jQuery中的ajax方法</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#ajax"><span class="section table-of-contents-text">$.ajax</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#其他api-了解"><span class="section table-of-contents-text">其他api(了解)</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#接口化开发"><span class="section table-of-contents-text">接口化开发</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#获取短信验证码接口"><span class="section table-of-contents-text">获取短信验证码接口</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#注册接口"><span class="section table-of-contents-text">注册接口</span></a></li></ol></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#模板引擎"><span class="section table-of-contents-text">模板引擎</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#为什么要使用模板引擎"><span class="section table-of-contents-text">为什么要使用模板引擎</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#常见的模板引擎"><span class="section table-of-contents-text">常见的模板引擎</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#artTemplate的使用"><span class="section table-of-contents-text">artTemplate的使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#artTemplate入门"><span class="section table-of-contents-text">artTemplate入门</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#artTemplate语法"><span class="section table-of-contents-text">artTemplate语法</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#瀑布流案例"><span class="section table-of-contents-text">瀑布流案例</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#封装jQuery瀑布流插件"><span class="section table-of-contents-text">封装jQuery瀑布流插件</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#瀑布流完整版"><span class="section table-of-contents-text">瀑布流完整版</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#综合案例"><span class="section table-of-contents-text">综合案例</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#数据库初始化"><span class="section table-of-contents-text">数据库初始化</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#页面初始化"><span class="section table-of-contents-text">页面初始化</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#bootstrap-paginator分页插件的使用"><span class="section table-of-contents-text">bootstrap-paginator分页插件的使用</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#同源与跨域"><span class="section table-of-contents-text">同源与跨域</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#同源"><span class="section table-of-contents-text">同源</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#同源策略的基本概念"><span class="section table-of-contents-text">同源策略的基本概念</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#同源策略的目的"><span class="section table-of-contents-text">同源策略的目的</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#同源策略的限制范围"><span class="section table-of-contents-text">同源策略的限制范围</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#跨域"><span class="section table-of-contents-text">跨域</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#jsonp"><span class="section table-of-contents-text">jsonp</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#jsonp演化过程1"><span class="section table-of-contents-text">jsonp演化过程1</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#jsonp演化过程2"><span class="section table-of-contents-text">jsonp演化过程2</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#jsonp演化过程3"><span class="section table-of-contents-text">jsonp演化过程3</span></a></li><li class="section table-of-contents-item section table-of-contents-level-4"><a class="section table-of-contents-link" href="#jsonp演化过程4"><span class="section table-of-contents-text">jsonp演化过程4</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#jquery对于jsonp的封装"><span class="section table-of-contents-text">jquery对于jsonp的封装</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#XMLHttpRequest2-0"><span class="section table-of-contents-text">XMLHttpRequest2.0</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#timeout设置超时"><span class="section table-of-contents-text">timeout设置超时</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#formData管理表单数据"><span class="section table-of-contents-text">formData管理表单数据</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#文件上传-1"><span class="section table-of-contents-text">文件上传</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#显示文件进度信息"><span class="section table-of-contents-text">显示文件进度信息</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#跨域资源共享-CORS"><span class="section table-of-contents-text">跨域资源共享(CORS)</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#cors的使用"><span class="section table-of-contents-text">cors的使用</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#CORS的具体流程（了解）"><span class="section table-of-contents-text">CORS的具体流程（了解）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#jsonp与cors的对比"><span class="section table-of-contents-text">jsonp与cors的对比</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#其他的跨域手段（没卵用）"><span class="section table-of-contents-text">其他的跨域手段（没卵用）</span></a></li></ol></li></ol></li></ol>
-</div>
-
-
-            <div class="entry pink-link-context">
-                <h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><blockquote>
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><blockquote>
 <p>前言：通俗的讲，能够提供某种服务的机器（计算机）称为服务器</p>
 </blockquote>
 <h2 id="服务器软件"><a href="#服务器软件" class="headerlink" title="服务器软件"></a>服务器软件</h2><blockquote>
@@ -901,282 +837,295 @@
 <p>1、顶级域名相同的可以通过domain.name来解决，即同时设置 domain.name = 顶级域名（如example.com）<br>2、document.domain + iframe<br>3、window.name + iframe<br>4、location.hash + iframe<br>5、window.postMessage()</p>
 <p><a href="http://rickgray.me/2015/09/03/solutions-to-cross-domain-in-browser.html" target="_blank" rel="external">其他跨域方式</a></p>
 
-                
-<p class="pink-link-context">
-    <a href="/2017/08/18/模块化/" rel="next" title="模块化">
-    上一篇：模块化
-  </a>
-</p>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-08-19T05:48:11.823Z" itemprop="dateUpdated">2017-08-19 13:48:11</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/08/18/http服务与ajax编程/" target="_blank" rel="external">zkh7809956.github.io/2017/08/18/http服务与ajax编程/</a>
+        
+    </div>
+    <footer>
+        <a href="zkh7809956.github.io">
+            <img src="/img/avater.jpg" alt="赵坤鸿">
+            赵坤鸿
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
 
 
 
-<p class="pink-link-context">
-    <a href="/2017/08/17/我的博客/" rel="next" title="我的第五篇博客">
-    下一篇：我的第五篇博客
-  </a>
-</p>
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Http协议/">Http协议</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/同源与跨域/">同源与跨域</a></li></ul>
 
 
-            </div>
-			
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=zkh7809956.github.io/2017/08/18/http服务与ajax编程/&title=《http服务与ajax编程》 — 赵牧一的象牙塔&pic=zkh7809956.github.io/img/avater.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=zkh7809956.github.io/2017/08/18/http服务与ajax编程/&title=《http服务与ajax编程》 — 赵牧一的象牙塔&source=华华有颗坚强的心--王者五集团上海地区总代理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=zkh7809956.github.io/2017/08/18/http服务与ajax编程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《http服务与ajax编程》 — 赵牧一的象牙塔&url=zkh7809956.github.io/2017/08/18/http服务与ajax编程/&via=zkh7809956.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=zkh7809956.github.io/2017/08/18/http服务与ajax编程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
         </div>
     </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/08/18/模块化/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">模块化</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/17/我的博客/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">我的第五篇博客</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </article>
 
-
-
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
 
 
 
 </div>
 
-        <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large pink">
-      <i class="fa fa-caret-square-o-up"></i>
-    </a>
-    <ul>
-      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
-      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
-    </ul>
-  </div>
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
 
-    </main>
-    <footer class="page-footer indigo darken-1">
-    
 
-    <div class="footer-copyright pink-link-context">
-        <div class="container">
-            © 2016 example.com, All rights reserved.
-            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism">raytaylorism</a></p>
-        </div>
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>赵坤鸿 &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
     </div>
 </footer>
 
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <noscript>
-    <div class="noscript">
-        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
-    </div>
-</noscript>
-<div class="noscript">
-    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=zkh7809956.github.io/2017/08/18/http服务与ajax编程/&title=《http服务与ajax编程》 — 赵牧一的象牙塔&pic=zkh7809956.github.io/img/avater.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=zkh7809956.github.io/2017/08/18/http服务与ajax编程/&title=《http服务与ajax编程》 — 赵牧一的象牙塔&source=华华有颗坚强的心--王者五集团上海地区总代理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=zkh7809956.github.io/2017/08/18/http服务与ajax编程/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《http服务与ajax编程》 — 赵牧一的象牙塔&url=zkh7809956.github.io/2017/08/18/http服务与ajax编程/&via=zkh7809956.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=zkh7809956.github.io/2017/08/18/http服务与ajax编程/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=zkh7809956.github.io/2017/08/18/http服务与ajax编程/" alt="微信分享二维码">
 </div>
 
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/materialize.min.js"></script>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
 
 <script>
-    (function($) {
-        $(document).ready(function() {
-            // 隐藏禁用javascript（针对微信内置浏览器）的提示
-            $('.noscript').hide();
-
-            // 图片缩放效果
-            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
-
-            // 给图片加上点击放大效果（materialbox插件）
-            $imgs.addClass('materialboxed').each(function(i, el) {
-                $(this).attr('data-caption', $(this).attr('alt') || ' ');
-            }).materialbox();
-
-            // 优化表格的显示
-            $('table').each(function() {
-                var $table = $(this);
-                // 除去多行代码的情况
-                if ($table.find('pre').length == 0) {
-                    $table.addClass('responsive-table striped bordered');
-                }
-            });
-
-            // 首页幻灯片
-            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
-
-            $(".button-collapse").sideNav();
-            $(".category-menu").sideNav();
-
-            // 针对gallery post
-            $('.carousel').carousel({full_width: true});
-            $('.carousel-control.prev').click(function() {
-                $('.carousel').carousel('prev');
-            });
-            $('.carousel-control.next').click(function() {
-                $('.carousel').carousel('next');
-            });
-
-            // 文章目录
-            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
-
-            // 目录随屏幕滚动（防止目录过长越过footer）
-            var $toc = $('.toc');
-            var scrollTargetTop = 0;
-            $(window).scroll(function() {
-                var $activeLink = $toc.find('a.active.section');
-                if ($(window).scrollTop() < 100) {
-                    scrollTargetTop = 0;
-                } else {
-                    if ($activeLink[0]) {
-                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
-                    }
-                }
-                $toc.css('top', '-' + scrollTargetTop + 'px');
-            });
-
-            // 修正文章目录的left-border颜色
-            var color = $('.table-of-contents-text').css('color');
-            $('.table-of-contents-link').css('border-left-color', color);
-
-            // 针对移动端做的优化：FAB按钮点击一下收回
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                $('.fixed-action-btn').addClass('click-to-toggle');
-            }
-            // 回到顶部
-            $('.btn-return-top').click(function() {
-                $('body, html').animate({
-                    scrollTop: 0
-                }, 500);
-            });
-
-            // 重置读书页面的Tab标签页的颜色
-            $('li.tab a').hover(function() {
-                $(this).toggleClass('text-lighten-4');
-            });
-            $('.indicator').addClass('pink lighten-2');
-
-            
-
-            // 搜索功能
-            $('.modal-trigger').leanModal({
-                // 打开搜索框时自动聚焦
-                ready: function() {
-                    if ($('#search').is(":visible")) {
-                        $('#search-input').focus();
-                    }
-                }
-            });
-            var searchXml = "";
-            if (searchXml.length == 0) {
-             	searchXml = "search.xml";
-            }
-            var searchPath = "/" + searchXml;
-            initSearch(searchPath, 'search-input', 'search-result');
-        });
-
-        // 初始化搜索与匹配函数
-        var initSearch = function(path, search_id, content_id) {
-            'use strict';
-            $.ajax({
-                url: path,
-                dataType: "xml",
-                success: function(xmlResponse) {
-                    // get the contents from search data
-                    var datas = $("entry", xmlResponse).map(function() {
-                        return {
-                            title: $("title", this).text(),
-                            content: $("content", this).text(),
-                            url: $("url", this).text()
-                        };
-                    }).get();
-                    var $input = document.getElementById(search_id);
-                    var $resultContent = document.getElementById(content_id);
-                    $input.addEventListener('input', function() {
-                        var str = '<ul class=\"search-result-list\">';
-                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                        $resultContent.innerHTML = "";
-                        if (this.value.trim().length <= 0) {
-                            return;
-                        }
-                        // perform local searching
-                        datas.forEach(function(data) {
-                            var isMatch = true;
-                            var content_index = [];
-                            var data_title = data.title.trim().toLowerCase();
-                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                            var data_url = data.url;
-                            var index_title = -1;
-                            var index_content = -1;
-                            var first_occur = -1;
-                            // only match artiles with not empty titles and contents
-                            if (data_title != '' && data_content != '') {
-                                keywords.forEach(function(keyword, i) {
-                                    index_title = data_title.indexOf(keyword);
-                                    index_content = data_content.indexOf(keyword);
-                                    if (index_title < 0 && index_content < 0) {
-                                        isMatch = false;
-                                    } else {
-                                        if (index_content < 0) {
-                                            index_content = 0;
-                                        }
-                                        if (i == 0) {
-                                            first_occur = index_content;
-                                        }
-                                    }
-                                });
-                            }
-                            // show search results
-                            if (isMatch) {
-                                keywords.forEach(function(keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
-                                });
-
-                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                                var content = data.content.trim().replace(/<[^>]+>/g, "");
-                                if (first_occur >= 0) {
-                                    // cut out 100 characters
-                                    var start = first_occur - 20;
-                                    var end = first_occur + 80;
-                                    if (start < 0) {
-                                        start = 0;
-                                    }
-                                    if (start == 0) {
-                                        end = 100;
-                                    }
-                                    if (end > content.length) {
-                                        end = content.length;
-                                    }
-                                    var match_content = content.substring(start, end);
-                                    // highlight all keywords
-                                    keywords.forEach(function(keyword) {
-                                        var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
-                                    });
-
-                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
-                                }
-                                str += "</li>";
-                            }
-                        });
-                        str += "</ul>";
-                        $resultContent.innerHTML = str;
-                    });
-                }
-            });
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '轻轻地我走了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '正如我轻轻地来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
         }
-    })(jQuery);
-</script>
-
-
-<script src="/js/prettify.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("pre").addClass("prettyprint");
-        prettyPrint();
     });
-</script>
-
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
-</script>
-<script type="text/javascript" async
-  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+})();
 </script>
 
 

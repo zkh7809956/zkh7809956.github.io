@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>gulp的使用 | 赵牧一的象牙塔 | 华华有颗坚强的心--王者五集团上海地区总代理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="gulp,npm,Broswer-sync">
+    <meta name="description" content="gulp gulp运行在nodejs环境下，而不是运行在浏览器中。因此使用gulp之前，需要使用npm安装gulp。  安装nodegulp是运行在nodejs环境下，因此需要安装nodejs 12node -v    #查看node版本npm  -v    #查看npm版本 npm基本使用 npm（node package manager）nodejs的包管理器，用于node插件管理（包括安装、">
+<meta name="keywords" content="gulp,npm,Broswer-sync">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp的使用">
+<meta property="og:url" content="zkh7809956.github.io/2017/08/29/gulp的使用/index.html">
+<meta property="og:site_name" content="赵牧一的象牙塔">
+<meta property="og:description" content="gulp gulp运行在nodejs环境下，而不是运行在浏览器中。因此使用gulp之前，需要使用npm安装gulp。  安装nodegulp是运行在nodejs环境下，因此需要安装nodejs 12node -v    #查看node版本npm  -v    #查看npm版本 npm基本使用 npm（node package manager）nodejs的包管理器，用于node插件管理（包括安装、">
+<meta property="og:updated_time" content="2017-08-29T09:18:11.585Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp的使用">
+<meta name="twitter:description" content="gulp gulp运行在nodejs环境下，而不是运行在浏览器中。因此使用gulp之前，需要使用npm安装gulp。  安装nodegulp是运行在nodejs环境下，因此需要安装nodejs 12node -v    #查看node版本npm  -v    #查看npm版本 npm基本使用 npm（node package manager）nodejs的包管理器，用于node插件管理（包括安装、">
+    
+        <link rel="alternate" type="application/atom+xml" title="赵牧一的象牙塔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avater.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">赵坤鸿</h5>
+          <a href="mailto:zkh7809956@163.com" title="zkh7809956@163.com" class="mail">zkh7809956@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zkh7809956" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">gulp的使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">gulp的使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-29T09:14:16.000Z" itemprop="datePublished" class="page-time">
+  2017-08-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/gulp/">gulp</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gulp"><span class="post-toc-text">gulp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装node"><span class="post-toc-text">安装node</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#npm基本使用"><span class="post-toc-text">npm基本使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改镜像地址"><span class="post-toc-text">修改镜像地址</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本使用步骤"><span class="post-toc-text">基本使用步骤</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gulp-前端自动化构建工具"><span class="post-toc-text">Gulp 前端自动化构建工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gulp能做什么？"><span class="post-toc-text">Gulp能做什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gulp的使用步骤"><span class="post-toc-text">gulp的使用步骤</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装gulp"><span class="post-toc-text">安装gulp</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#核心方法"><span class="post-toc-text">核心方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装gulp插件"><span class="post-toc-text">安装gulp插件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#gulp常用插件"><span class="post-toc-text">gulp常用插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gulp之js压缩"><span class="post-toc-text">gulp之js压缩</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gulp之less转css"><span class="post-toc-text">gulp之less转css</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gulp之html压缩"><span class="post-toc-text">gulp之html压缩</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同时执行多个任务"><span class="post-toc-text">同时执行多个任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gulp之Broswer-sync"><span class="post-toc-text">gulp之Broswer-sync</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-gulp的使用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">gulp的使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-29 17:14:16" datetime="2017-08-29T09:14:16.000Z"  itemprop="datePublished">2017-08-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/gulp/">gulp</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h1><blockquote>
+<p>gulp运行在nodejs环境下，而不是运行在浏览器中。因此使用gulp之前，需要使用npm安装gulp。</p>
+</blockquote>
+<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><p>gulp是运行在nodejs环境下，因此需要安装nodejs</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node -v    #查看node版本</div><div class="line">npm  -v    #查看npm版本</div></pre></td></tr></table></figure>
+<h2 id="npm基本使用"><a href="#npm基本使用" class="headerlink" title="npm基本使用"></a>npm基本使用</h2><blockquote>
+<p>npm（node package manager）nodejs的包管理器，用于node插件管理（包括安装、卸载、管理依赖等）</p>
+<p><a href="https://www.npmjs.com/" target="_blank" rel="external">npm</a>也是全球最大的开源库生态系统，上面管理了javascript相关的将近50W个包。使用非常的方便。</p>
+</blockquote>
+<h3 id="修改镜像地址"><a href="#修改镜像地址" class="headerlink" title="修改镜像地址"></a>修改镜像地址</h3><p>npm默认访问的<a href="https://www.npmjs.com/，这是国外的网站，访问和下载速度会很慢。" target="_blank" rel="external">https://www.npmjs.com/，这是国外的网站，访问和下载速度会很慢。</a></p>
+<p><a href="http://npm.taobao.org/" target="_blank" rel="external">淘宝镜像</a> 这是一个完整 <code>npmjs.org</code> 镜像，你可以用此代替官方版本(只读)，同步频率目前为 <strong>10分钟</strong> 一次以保证尽量与官方服务同步。在国内，下载速度会得到质的提升</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org --global</div><div class="line">npm config <span class="built_in">set</span> disturl https://npm.taobao.org/dist --global</div></pre></td></tr></table></figure>
+<h3 id="基本使用步骤"><a href="#基本使用步骤" class="headerlink" title="基本使用步骤"></a>基本使用步骤</h3><ul>
+<li>输入<code>npm init</code> 进行初始化<ul>
+<li>会生成一个<code>package.json</code>文件。</li>
+<li><code>package.json</code>是node项目的配置文件，用于管理包之间的依赖。</li>
+</ul>
+</li>
+<li><code>npm install jquery --save</code>就可以下载jquery的包了<ul>
+<li><code>--save</code>会把内容添加到<code>package.json</code>中，默认下载最新版本的jquery</li>
+<li><code>npm install jquery@1.12.4 --save</code> 下载指定版本的jquery文件。</li>
+<li><code>nmp info jquery</code>查看jquery这个包的信息</li>
+</ul>
+</li>
+<li><code>npm remove 包名称 --save</code> 移除包的依赖，并修改<code>package.json</code></li>
+</ul>
+<p>关于<code>package.json</code>,npm可以根据该文件，配合<code>npm install</code>命令自动下载依赖的包，不用每次都拷贝依赖的内容，只需要一个<code>package.json</code>即可。</p>
+<p>通过npm配合require在node中非常的常用，现在大伙知道安装包的大致步骤即可。</p>
+<h2 id="Gulp-前端自动化构建工具"><a href="#Gulp-前端自动化构建工具" class="headerlink" title="Gulp 前端自动化构建工具"></a>Gulp 前端自动化构建工具</h2><blockquote>
+<p>Gulp.js 是一个自动化构建工具,开发者可以使用它在项目开发过程中自动执行常见任务。</p>
+</blockquote>
+<h3 id="Gulp能做什么？"><a href="#Gulp能做什么？" class="headerlink" title="Gulp能做什么？"></a>Gulp能做什么？</h3><ul>
+<li>less/sass文件转换css文件</li>
+<li>html文件、css文件、js文件以及图片的压缩</li>
+<li>自动补充属性的前缀。</li>
+<li>多浏览器的同步</li>
+</ul>
+<p>这些操作都需要手动去完成，繁琐但是不难，如果是用了gulp，这些工作只需要一句话就能完成，实行自动化构建，从而提高了工作的效率。</p>
+<p><a href="http://www.gulpjs.com/" target="_blank" rel="external">官网</a></p>
+<p><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">中文网</a></p>
+<p>其他构建工具：Grunt、webpack</p>
+<p>gulp的应用场景</p>
+<ul>
+<li>项目发布前，对项目进行构建</li>
+<li>自动完成一系列重复的操作</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">js/css/html文件的压缩，混淆，监视文件变化，同步浏览器等。</div><div class="line">less转换成css文件。</div></pre></td></tr></table></figure>
+<h3 id="gulp的使用步骤"><a href="#gulp的使用步骤" class="headerlink" title="gulp的使用步骤"></a>gulp的使用步骤</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">安装nodejs --&gt; 全局安装gulp --&gt; 项目安装gulp以及gulp插件 --&gt; 配置gulpfile.js --&gt; 运行任务</div></pre></td></tr></table></figure>
+<h3 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h3><ul>
+<li>全局安装gulp<ul>
+<li><code>npm install --global gulp</code> 执行gulp命令时能够使用gulp命令<code>-g</code></li>
+<li>–global :全局安装在<code>C:\Users\Administrator\AppData\Roaming\npm</code>目录，并且会写入系统变量，可以在任何目录下使用<code>gulp</code>命令</li>
+</ul>
+</li>
+<li>作为项目的开发依赖（devDependencies）安装<ul>
+<li><code>npm install --save-dev gulp</code> 本地安装gulp为了使用gulp功能</li>
+<li><code>--save</code>与<code>--save-dev</code>的区别，后者只有开发时会使用到，在生产环境中，并不会依赖。</li>
+</ul>
+</li>
+</ul>
+<h3 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">task() <span class="comment">//gulp是以任务为单位实现功能</span></div><div class="line">src()  <span class="comment">//传入路径参数，获取要处理的指定文件</span></div><div class="line">dest() <span class="comment">//指定处理后的文件输出路径</span></div><div class="line">watch()<span class="comment">//监视文件的变化，做出响应的处理。</span></div></pre></td></tr></table></figure>
+<p>使用步骤 ：</p>
+<ol>
+<li>在文件夹的根目录中，创建一个<code>gulpfile.js</code>文件<ol>
+<li>文件名固定，因为将来执行gulp命令时，会搜索<code>gulpfile.js</code>文件</li>
+</ol>
+</li>
+<li>在gulpfile.js文件中写gulp任务</li>
+<li><code>gulp 任务名称</code>执行gulp任务</li>
+</ol>
+<h3 id="安装gulp插件"><a href="#安装gulp插件" class="headerlink" title="安装gulp插件"></a>安装gulp插件</h3><ul>
+<li><code>gulp-less</code> 将less文件转换成css文件</li>
+<li><code>gulp-uglify</code> 压缩和混淆js代码</li>
+<li><code>gulp-cssnano</code> 压缩css代码</li>
+<li><code>gulp-htmlmin</code> 压缩html代码</li>
+<li><code>gulp-rename</code> 文件重命名</li>
+</ul>
+<p>安装命令：<code>npm install gulp-名称 --save-dev</code>进行安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">npm install gulp-less --save-dev</div><div class="line">npm install gulp-uglify --save-dev</div><div class="line">npm install gulp-cssnano --save-dev</div><div class="line">npm install gulp-htmlmin --save-dev</div><div class="line">npm install gulp-rename --save-dev</div><div class="line"></div><div class="line"></div><div class="line">npm install --save-dev gulp-less gulp-uglify gulp-cssnano gulp-htmlmin gulp-rename</div></pre></td></tr></table></figure>
+<h2 id="gulp常用插件"><a href="#gulp常用插件" class="headerlink" title="gulp常用插件"></a>gulp常用插件</h2><h3 id="gulp之js压缩"><a href="#gulp之js压缩" class="headerlink" title="gulp之js压缩"></a>gulp之js压缩</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. 引入gulp的包</span></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</div><div class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">"gulp-uglify"</span>);</div><div class="line"><span class="keyword">var</span> rename = <span class="built_in">require</span>(<span class="string">"gulp-rename"</span>)</div><div class="line"></div><div class="line"><span class="comment">//2. 创建gulp任务</span></div><div class="line">gulp.task(<span class="string">'js'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//src获取到要压缩的文件，传入数组可以压缩多个文件，路径可以使用通配符</span></div><div class="line">  gulp.src(<span class="string">"./jquery.js"</span>)</div><div class="line">    .pipe( uglify())<span class="comment">//使用uglify插件</span></div><div class="line">    .pipe(rename(&#123; <span class="attr">suffix</span>: <span class="string">'.min'</span> &#125;))    <span class="comment">//使用rename插件，压缩后的文件会带上.min后缀</span></div><div class="line">    .pipe( gulp.dest(<span class="string">"./dist"</span>) );<span class="comment">//dest:指定输出路径</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>最后：在gulpfile.js所在的目录执行<code>gulp js</code>命令即可。</p>
+<h3 id="gulp之less转css"><a href="#gulp之less转css" class="headerlink" title="gulp之less转css"></a>gulp之less转css</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>);;</div><div class="line"><span class="comment">//less转css任务</span></div><div class="line">gulp.task(<span class="string">"less"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  gulp.src(<span class="string">"./less/index.less"</span>)</div><div class="line">    .pipe(less())</div><div class="line">    .pipe(gulp.dest(<span class="string">"./css"</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="gulp之html压缩"><a href="#gulp之html压缩" class="headerlink" title="gulp之html压缩"></a>gulp之html压缩</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">"html"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  gulp.src(<span class="string">"./index.html"</span>)</div><div class="line">    .pipe(htmlmin(&#123;</div><div class="line">      collapseWhitespace: <span class="literal">true</span>,</div><div class="line">      minifyCSS:<span class="literal">true</span>,</div><div class="line">      minifyJS:<span class="literal">true</span></div><div class="line">    &#125;))</div><div class="line">    .pipe(gulp.dest(<span class="string">"./dist"</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="同时执行多个任务"><a href="#同时执行多个任务" class="headerlink" title="同时执行多个任务"></a>同时执行多个任务</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 同时执行多个任务，default是默认的名字，可以直接使用gulp命令执行。</span></div><div class="line">gulp.task(<span class="string">"default"</span>, [<span class="string">"js"</span>,<span class="string">"less"</span>,<span class="string">"html"</span>],<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"任务执行完毕"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>思考：将gulp应用到博学谷中</p>
+<h3 id="gulp之Broswer-sync"><a href="#gulp之Broswer-sync" class="headerlink" title="gulp之Broswer-sync"></a>gulp之Broswer-sync</h3><p><a href="http://www.browsersync.cn/docs/gulp/" target="_blank" rel="external">Browsersync + Gulp.js</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp        = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>).create();</div><div class="line"></div><div class="line"><span class="comment">// 静态服务器</span></div><div class="line">gulp.task(<span class="string">'browser-sync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    browserSync.init(&#123;</div><div class="line">        server: &#123;</div><div class="line">            baseDir: <span class="string">"./"</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 代理</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'browser-sync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    browserSync.init(&#123;</div><div class="line">        proxy: <span class="string">"你的域名或IP"</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-08-29T09:18:11.585Z" itemprop="dateUpdated">2017-08-29 17:18:11</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/08/29/gulp的使用/" target="_blank" rel="external">zkh7809956.github.io/2017/08/29/gulp的使用/</a>
+        
+    </div>
+    <footer>
+        <a href="zkh7809956.github.io">
+            <img src="/img/avater.jpg" alt="赵坤鸿">
+            赵坤鸿
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Broswer-sync/">Broswer-sync</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=zkh7809956.github.io/2017/08/29/gulp的使用/&title=《gulp的使用》 — 赵牧一的象牙塔&pic=zkh7809956.github.io/img/avater.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=zkh7809956.github.io/2017/08/29/gulp的使用/&title=《gulp的使用》 — 赵牧一的象牙塔&source=华华有颗坚强的心--王者五集团上海地区总代理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=zkh7809956.github.io/2017/08/29/gulp的使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gulp的使用》 — 赵牧一的象牙塔&url=zkh7809956.github.io/2017/08/29/gulp的使用/&via=zkh7809956.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=zkh7809956.github.io/2017/08/29/gulp的使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/20/跨域之反向代理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">跨域之反向代理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/weChat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/weChat.png" data-alipay="/img/Aplipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>赵坤鸿 &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=zkh7809956.github.io/2017/08/29/gulp的使用/&title=《gulp的使用》 — 赵牧一的象牙塔&pic=zkh7809956.github.io/img/avater.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=zkh7809956.github.io/2017/08/29/gulp的使用/&title=《gulp的使用》 — 赵牧一的象牙塔&source=华华有颗坚强的心--王者五集团上海地区总代理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=zkh7809956.github.io/2017/08/29/gulp的使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《gulp的使用》 — 赵牧一的象牙塔&url=zkh7809956.github.io/2017/08/29/gulp的使用/&via=zkh7809956.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=zkh7809956.github.io/2017/08/29/gulp的使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=zkh7809956.github.io/2017/08/29/gulp的使用/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '轻轻地我走了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '正如我轻轻地来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

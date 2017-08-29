@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="zkh7809956.github.io/"/>
-  <updated>2017-08-20T00:56:02.365Z</updated>
+  <updated>2017-08-29T09:18:11.585Z</updated>
   <id>zkh7809956.github.io/</id>
   
   <author>
@@ -14,6 +14,119 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gulp的使用</title>
+    <link href="zkh7809956.github.io/2017/08/29/gulp%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>zkh7809956.github.io/2017/08/29/gulp的使用/</id>
+    <published>2017-08-29T09:14:16.000Z</published>
+    <updated>2017-08-29T09:18:11.585Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h1><blockquote>
+<p>gulp运行在nodejs环境下，而不是运行在浏览器中。因此使用gulp之前，需要使用npm安装gulp。</p>
+</blockquote>
+<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><p>gulp是运行在nodejs环境下，因此需要安装nodejs</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node -v    #查看node版本</div><div class="line">npm  -v    #查看npm版本</div></pre></td></tr></table></figure>
+<h2 id="npm基本使用"><a href="#npm基本使用" class="headerlink" title="npm基本使用"></a>npm基本使用</h2><blockquote>
+<p>npm（node package manager）nodejs的包管理器，用于node插件管理（包括安装、卸载、管理依赖等）</p>
+<p><a href="https://www.npmjs.com/" target="_blank" rel="external">npm</a>也是全球最大的开源库生态系统，上面管理了javascript相关的将近50W个包。使用非常的方便。</p>
+</blockquote>
+<h3 id="修改镜像地址"><a href="#修改镜像地址" class="headerlink" title="修改镜像地址"></a>修改镜像地址</h3><p>npm默认访问的<a href="https://www.npmjs.com/，这是国外的网站，访问和下载速度会很慢。" target="_blank" rel="external">https://www.npmjs.com/，这是国外的网站，访问和下载速度会很慢。</a></p>
+<p><a href="http://npm.taobao.org/" target="_blank" rel="external">淘宝镜像</a> 这是一个完整 <code>npmjs.org</code> 镜像，你可以用此代替官方版本(只读)，同步频率目前为 <strong>10分钟</strong> 一次以保证尽量与官方服务同步。在国内，下载速度会得到质的提升</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org --global</div><div class="line">npm config <span class="built_in">set</span> disturl https://npm.taobao.org/dist --global</div></pre></td></tr></table></figure>
+<h3 id="基本使用步骤"><a href="#基本使用步骤" class="headerlink" title="基本使用步骤"></a>基本使用步骤</h3><ul>
+<li>输入<code>npm init</code> 进行初始化<ul>
+<li>会生成一个<code>package.json</code>文件。</li>
+<li><code>package.json</code>是node项目的配置文件，用于管理包之间的依赖。</li>
+</ul>
+</li>
+<li><code>npm install jquery --save</code>就可以下载jquery的包了<ul>
+<li><code>--save</code>会把内容添加到<code>package.json</code>中，默认下载最新版本的jquery</li>
+<li><code>npm install jquery@1.12.4 --save</code> 下载指定版本的jquery文件。</li>
+<li><code>nmp info jquery</code>查看jquery这个包的信息</li>
+</ul>
+</li>
+<li><code>npm remove 包名称 --save</code> 移除包的依赖，并修改<code>package.json</code></li>
+</ul>
+<p>关于<code>package.json</code>,npm可以根据该文件，配合<code>npm install</code>命令自动下载依赖的包，不用每次都拷贝依赖的内容，只需要一个<code>package.json</code>即可。</p>
+<p>通过npm配合require在node中非常的常用，现在大伙知道安装包的大致步骤即可。</p>
+<h2 id="Gulp-前端自动化构建工具"><a href="#Gulp-前端自动化构建工具" class="headerlink" title="Gulp 前端自动化构建工具"></a>Gulp 前端自动化构建工具</h2><blockquote>
+<p>Gulp.js 是一个自动化构建工具,开发者可以使用它在项目开发过程中自动执行常见任务。</p>
+</blockquote>
+<h3 id="Gulp能做什么？"><a href="#Gulp能做什么？" class="headerlink" title="Gulp能做什么？"></a>Gulp能做什么？</h3><ul>
+<li>less/sass文件转换css文件</li>
+<li>html文件、css文件、js文件以及图片的压缩</li>
+<li>自动补充属性的前缀。</li>
+<li>多浏览器的同步</li>
+</ul>
+<p>这些操作都需要手动去完成，繁琐但是不难，如果是用了gulp，这些工作只需要一句话就能完成，实行自动化构建，从而提高了工作的效率。</p>
+<p><a href="http://www.gulpjs.com/" target="_blank" rel="external">官网</a></p>
+<p><a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">中文网</a></p>
+<p>其他构建工具：Grunt、webpack</p>
+<p>gulp的应用场景</p>
+<ul>
+<li>项目发布前，对项目进行构建</li>
+<li>自动完成一系列重复的操作</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">js/css/html文件的压缩，混淆，监视文件变化，同步浏览器等。</div><div class="line">less转换成css文件。</div></pre></td></tr></table></figure>
+<h3 id="gulp的使用步骤"><a href="#gulp的使用步骤" class="headerlink" title="gulp的使用步骤"></a>gulp的使用步骤</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">安装nodejs --&gt; 全局安装gulp --&gt; 项目安装gulp以及gulp插件 --&gt; 配置gulpfile.js --&gt; 运行任务</div></pre></td></tr></table></figure>
+<h3 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h3><ul>
+<li>全局安装gulp<ul>
+<li><code>npm install --global gulp</code> 执行gulp命令时能够使用gulp命令<code>-g</code></li>
+<li>–global :全局安装在<code>C:\Users\Administrator\AppData\Roaming\npm</code>目录，并且会写入系统变量，可以在任何目录下使用<code>gulp</code>命令</li>
+</ul>
+</li>
+<li>作为项目的开发依赖（devDependencies）安装<ul>
+<li><code>npm install --save-dev gulp</code> 本地安装gulp为了使用gulp功能</li>
+<li><code>--save</code>与<code>--save-dev</code>的区别，后者只有开发时会使用到，在生产环境中，并不会依赖。</li>
+</ul>
+</li>
+</ul>
+<h3 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">task() <span class="comment">//gulp是以任务为单位实现功能</span></div><div class="line">src()  <span class="comment">//传入路径参数，获取要处理的指定文件</span></div><div class="line">dest() <span class="comment">//指定处理后的文件输出路径</span></div><div class="line">watch()<span class="comment">//监视文件的变化，做出响应的处理。</span></div></pre></td></tr></table></figure>
+<p>使用步骤 ：</p>
+<ol>
+<li>在文件夹的根目录中，创建一个<code>gulpfile.js</code>文件<ol>
+<li>文件名固定，因为将来执行gulp命令时，会搜索<code>gulpfile.js</code>文件</li>
+</ol>
+</li>
+<li>在gulpfile.js文件中写gulp任务</li>
+<li><code>gulp 任务名称</code>执行gulp任务</li>
+</ol>
+<h3 id="安装gulp插件"><a href="#安装gulp插件" class="headerlink" title="安装gulp插件"></a>安装gulp插件</h3><ul>
+<li><code>gulp-less</code> 将less文件转换成css文件</li>
+<li><code>gulp-uglify</code> 压缩和混淆js代码</li>
+<li><code>gulp-cssnano</code> 压缩css代码</li>
+<li><code>gulp-htmlmin</code> 压缩html代码</li>
+<li><code>gulp-rename</code> 文件重命名</li>
+</ul>
+<p>安装命令：<code>npm install gulp-名称 --save-dev</code>进行安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">npm install gulp-less --save-dev</div><div class="line">npm install gulp-uglify --save-dev</div><div class="line">npm install gulp-cssnano --save-dev</div><div class="line">npm install gulp-htmlmin --save-dev</div><div class="line">npm install gulp-rename --save-dev</div><div class="line"></div><div class="line"></div><div class="line">npm install --save-dev gulp-less gulp-uglify gulp-cssnano gulp-htmlmin gulp-rename</div></pre></td></tr></table></figure>
+<h2 id="gulp常用插件"><a href="#gulp常用插件" class="headerlink" title="gulp常用插件"></a>gulp常用插件</h2><h3 id="gulp之js压缩"><a href="#gulp之js压缩" class="headerlink" title="gulp之js压缩"></a>gulp之js压缩</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. 引入gulp的包</span></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</div><div class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">"gulp-uglify"</span>);</div><div class="line"><span class="keyword">var</span> rename = <span class="built_in">require</span>(<span class="string">"gulp-rename"</span>)</div><div class="line"></div><div class="line"><span class="comment">//2. 创建gulp任务</span></div><div class="line">gulp.task(<span class="string">'js'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//src获取到要压缩的文件，传入数组可以压缩多个文件，路径可以使用通配符</span></div><div class="line">  gulp.src(<span class="string">"./jquery.js"</span>)</div><div class="line">    .pipe( uglify())<span class="comment">//使用uglify插件</span></div><div class="line">    .pipe(rename(&#123; <span class="attr">suffix</span>: <span class="string">'.min'</span> &#125;))    <span class="comment">//使用rename插件，压缩后的文件会带上.min后缀</span></div><div class="line">    .pipe( gulp.dest(<span class="string">"./dist"</span>) );<span class="comment">//dest:指定输出路径</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>最后：在gulpfile.js所在的目录执行<code>gulp js</code>命令即可。</p>
+<h3 id="gulp之less转css"><a href="#gulp之less转css" class="headerlink" title="gulp之less转css"></a>gulp之less转css</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>);;</div><div class="line"><span class="comment">//less转css任务</span></div><div class="line">gulp.task(<span class="string">"less"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  gulp.src(<span class="string">"./less/index.less"</span>)</div><div class="line">    .pipe(less())</div><div class="line">    .pipe(gulp.dest(<span class="string">"./css"</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="gulp之html压缩"><a href="#gulp之html压缩" class="headerlink" title="gulp之html压缩"></a>gulp之html压缩</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">"html"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  gulp.src(<span class="string">"./index.html"</span>)</div><div class="line">    .pipe(htmlmin(&#123;</div><div class="line">      collapseWhitespace: <span class="literal">true</span>,</div><div class="line">      minifyCSS:<span class="literal">true</span>,</div><div class="line">      minifyJS:<span class="literal">true</span></div><div class="line">    &#125;))</div><div class="line">    .pipe(gulp.dest(<span class="string">"./dist"</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="同时执行多个任务"><a href="#同时执行多个任务" class="headerlink" title="同时执行多个任务"></a>同时执行多个任务</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 同时执行多个任务，default是默认的名字，可以直接使用gulp命令执行。</span></div><div class="line">gulp.task(<span class="string">"default"</span>, [<span class="string">"js"</span>,<span class="string">"less"</span>,<span class="string">"html"</span>],<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"任务执行完毕"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>思考：将gulp应用到博学谷中</p>
+<h3 id="gulp之Broswer-sync"><a href="#gulp之Broswer-sync" class="headerlink" title="gulp之Broswer-sync"></a>gulp之Broswer-sync</h3><p><a href="http://www.browsersync.cn/docs/gulp/" target="_blank" rel="external">Browsersync + Gulp.js</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp        = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>).create();</div><div class="line"></div><div class="line"><span class="comment">// 静态服务器</span></div><div class="line">gulp.task(<span class="string">'browser-sync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    browserSync.init(&#123;</div><div class="line">        server: &#123;</div><div class="line">            baseDir: <span class="string">"./"</span></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 代理</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'browser-sync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    browserSync.init(&#123;</div><div class="line">        proxy: <span class="string">"你的域名或IP"</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;gulp&quot;&gt;&lt;a href=&quot;#gulp&quot; class=&quot;headerlink&quot; title=&quot;gulp&quot;&gt;&lt;/a&gt;gulp&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;gulp运行在nodejs环境下，而不是运行在浏览器中。因此使用gulp之前，需要使用npm安装g
+    
+    </summary>
+    
+      <category term="gulp" scheme="zkh7809956.github.io/categories/gulp/"/>
+    
+    
+      <category term="gulp" scheme="zkh7809956.github.io/tags/gulp/"/>
+    
+      <category term="npm" scheme="zkh7809956.github.io/tags/npm/"/>
+    
+      <category term="Broswer-sync" scheme="zkh7809956.github.io/tags/Broswer-sync/"/>
+    
+  </entry>
   
   <entry>
     <title>跨域之反向代理</title>
@@ -1378,39 +1491,6 @@
   </entry>
   
   <entry>
-    <title>我的第一篇博客</title>
-    <link href="zkh7809956.github.io/2016/08/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%20/"/>
-    <id>zkh7809956.github.io/2016/08/16/我的第二篇博客 /</id>
-    <published>2016-08-16T12:22:30.000Z</published>
-    <updated>2017-08-16T13:34:55.940Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="我是最大的标题"><a href="#我是最大的标题" class="headerlink" title="我是最大的标题"></a>我是最大的标题</h1><h2 id="我是二级标题"><a href="#我是二级标题" class="headerlink" title="我是二级标题"></a>我是二级标题</h2><h3 id="我是三级标题"><a href="#我是三级标题" class="headerlink" title="我是三级标题"></a>我是三级标题</h3><ul>
-<li>我是无序列表<ul>
-<li>我是无序列表</li>
-<li>呵呵</li>
-<li>嘻嘻</li>
-</ul>
-</li>
-</ul>
-<p><em>我是斜体代ma</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"哈哈哈"</span>);</div><div class="line"><span class="keyword">var</span> num = <span class="number">100</span>;</div><div class="line"><span class="built_in">console</span>.log(num);</div><div class="line"><span class="comment">//这是注释</span></div><div class="line"></div><div class="line"></div><div class="line">|标题|描述|</div></pre></td></tr></table></figure>
-<p><strong>这是加粗的文字</strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;我是最大的标题&quot;&gt;&lt;a href=&quot;#我是最大的标题&quot; class=&quot;headerlink&quot; title=&quot;我是最大的标题&quot;&gt;&lt;/a&gt;我是最大的标题&lt;/h1&gt;&lt;h2 id=&quot;我是二级标题&quot;&gt;&lt;a href=&quot;#我是二级标题&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-      <category term="javascript" scheme="zkh7809956.github.io/categories/javascript/"/>
-    
-    
-      <category term="随笔" scheme="zkh7809956.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
     <title>我的第四篇博客</title>
     <link href="zkh7809956.github.io/2016/08/16/%E6%88%91%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
     <id>zkh7809956.github.io/2016/08/16/我的第四篇博客/</id>
@@ -1433,6 +1513,39 @@
     <summary type="html">
     
       &lt;h1 id=&quot;我是个好好孩子&quot;&gt;&lt;a href=&quot;#我是个好好孩子&quot; class=&quot;headerlink&quot; title=&quot;我是个好好孩子&quot;&gt;&lt;/a&gt;我是个好好孩子&lt;/h1&gt;&lt;h2 id=&quot;这是个真实的橘子&quot;&gt;&lt;a href=&quot;#这是个真实的橘子&quot; class=&quot;headerli
+    
+    </summary>
+    
+      <category term="javascript" scheme="zkh7809956.github.io/categories/javascript/"/>
+    
+    
+      <category term="随笔" scheme="zkh7809956.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的第一篇博客</title>
+    <link href="zkh7809956.github.io/2016/08/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%20/"/>
+    <id>zkh7809956.github.io/2016/08/16/我的第二篇博客 /</id>
+    <published>2016-08-16T12:22:30.000Z</published>
+    <updated>2017-08-16T13:34:55.940Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我是最大的标题"><a href="#我是最大的标题" class="headerlink" title="我是最大的标题"></a>我是最大的标题</h1><h2 id="我是二级标题"><a href="#我是二级标题" class="headerlink" title="我是二级标题"></a>我是二级标题</h2><h3 id="我是三级标题"><a href="#我是三级标题" class="headerlink" title="我是三级标题"></a>我是三级标题</h3><ul>
+<li>我是无序列表<ul>
+<li>我是无序列表</li>
+<li>呵呵</li>
+<li>嘻嘻</li>
+</ul>
+</li>
+</ul>
+<p><em>我是斜体代ma</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"哈哈哈"</span>);</div><div class="line"><span class="keyword">var</span> num = <span class="number">100</span>;</div><div class="line"><span class="built_in">console</span>.log(num);</div><div class="line"><span class="comment">//这是注释</span></div><div class="line"></div><div class="line"></div><div class="line">|标题|描述|</div></pre></td></tr></table></figure>
+<p><strong>这是加粗的文字</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;我是最大的标题&quot;&gt;&lt;a href=&quot;#我是最大的标题&quot; class=&quot;headerlink&quot; title=&quot;我是最大的标题&quot;&gt;&lt;/a&gt;我是最大的标题&lt;/h1&gt;&lt;h2 id=&quot;我是二级标题&quot;&gt;&lt;a href=&quot;#我是二级标题&quot; class=&quot;headerlink&quot; 
     
     </summary>
     

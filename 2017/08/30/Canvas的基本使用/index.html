@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Canvas的基本使用 | 赵牧一的象牙塔 | 华华有颗坚强的心--王者五集团上海地区总代理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="canvas的基本使用">
+    <meta name="description" content="Canvas  第一篇Canvas的基本概念 Canvas 是个H5中新增的标签 Canvas 默认宽高 300 * 150 设置canvas标签的尺寸应该使用行内属性的方式，而不是css样式，因为css样式会将画布拉伸 canvas标签是有兼容性问题的，所以在不支持canvas的浏览器中，会被当做div处理，所以一般会在canvas中书写一些提示信息，这些信息只有在不支持canvas的浏览器中才">
+<meta name="keywords" content="canvas的基本使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas的基本使用">
+<meta property="og:url" content="zkh7809956.github.io/2017/08/30/Canvas的基本使用/index.html">
+<meta property="og:site_name" content="赵牧一的象牙塔">
+<meta property="og:description" content="Canvas  第一篇Canvas的基本概念 Canvas 是个H5中新增的标签 Canvas 默认宽高 300 * 150 设置canvas标签的尺寸应该使用行内属性的方式，而不是css样式，因为css样式会将画布拉伸 canvas标签是有兼容性问题的，所以在不支持canvas的浏览器中，会被当做div处理，所以一般会在canvas中书写一些提示信息，这些信息只有在不支持canvas的浏览器中才">
+<meta property="og:updated_time" content="2017-08-30T08:26:45.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas的基本使用">
+<meta name="twitter:description" content="Canvas  第一篇Canvas的基本概念 Canvas 是个H5中新增的标签 Canvas 默认宽高 300 * 150 设置canvas标签的尺寸应该使用行内属性的方式，而不是css样式，因为css样式会将画布拉伸 canvas标签是有兼容性问题的，所以在不支持canvas的浏览器中，会被当做div处理，所以一般会在canvas中书写一些提示信息，这些信息只有在不支持canvas的浏览器中才">
+    
+        <link rel="alternate" type="application/atom+xml" title="赵牧一的象牙塔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avater.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">赵坤鸿</h5>
+          <a href="mailto:zkh7809956@163.com" title="zkh7809956@163.com" class="mail">zkh7809956@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zkh7809956" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Canvas的基本使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Canvas的基本使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-30T08:02:59.000Z" itemprop="datePublished" class="page-time">
+  2017-08-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Canvas-第一篇"><span class="post-toc-text">Canvas  第一篇</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Canvas的基本概念"><span class="post-toc-text">Canvas的基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Canvas的基本使用"><span class="post-toc-text">Canvas的基本使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#canvas基本api"><span class="post-toc-text">canvas基本api</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#非零环绕原则"><span class="post-toc-text">非零环绕原则</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用该原则绘制镂空的图形"><span class="post-toc-text">使用该原则绘制镂空的图形</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#路径"><span class="post-toc-text">路径</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线型相关的属性"><span class="post-toc-text">线型相关的属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#渐变色"><span class="post-toc-text">渐变色</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#曲线"><span class="post-toc-text">曲线</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绘制画布中的点"><span class="post-toc-text">绘制画布中的点</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Canvas的基本使用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Canvas的基本使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-30 16:02:59" datetime="2017-08-30T08:02:59.000Z"  itemprop="datePublished">2017-08-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Canvas-第一篇"><a href="#Canvas-第一篇" class="headerlink" title="Canvas  第一篇"></a>Canvas  第一篇</h1><h2 id="Canvas的基本概念"><a href="#Canvas的基本概念" class="headerlink" title="Canvas的基本概念"></a>Canvas的基本概念</h2><ol>
+<li>Canvas 是个H5中新增的标签</li>
+<li>Canvas 默认宽高 300 * 150</li>
+<li>设置canvas标签的尺寸应该使用行内属性的方式，而不是css样式，因为css样式会将画布拉伸</li>
+<li>canvas标签是有兼容性问题的，所以在不支持canvas的浏览器中，会被当做div处理，所以一般会在canvas中书写一些提示信息，这些信息只有在不支持canvas的浏览器中才会显示出来</li>
+<li>canvas的api兼容性非常好，所有支持canvas的浏览器中，api的使用方式都是一致的</li>
+<li>canvas是一个画布，他自己不能绘制图形，需要使用绘图工具，页面中每一个canvas标签都有自己的绘图工具</li>
+</ol>
+<h2 id="Canvas的基本使用"><a href="#Canvas的基本使用" class="headerlink" title="Canvas的基本使用"></a>Canvas的基本使用</h2><ol>
+<li>要在页面中书写canvas标签</li>
+<li>使用js代码获取canvas标签对象</li>
+<li>使用获取到的canvas标签对象获取绘图工具（canvas对象.getContext(“2d”)）</li>
+<li>确定起始点（绘图工具.moveTo()）</li>
+<li>确定结束点（绘图工具.lineTo()）</li>
+<li>描线 （绘图工具.stroke())</li>
+</ol>
+<h2 id="canvas基本api"><a href="#canvas基本api" class="headerlink" title="canvas基本api"></a>canvas基本api</h2><ol>
+<li>canvas对象.getContext(type)<br>这个方法可以用来获取绘图工具，type用来指定绘图工具的类型<br>type有两种值： “2d”  “webgl”</li>
+<li>绘图工具.moveTo(x, y)<br>这个方法用来确定起始位置 x,y 表示坐标</li>
+<li>绘图工具.lineTo(x, y)<br>这个方法用来确定结束位置 x,y 表示坐标<br>本次lineTo点，将会成为下次lineTo的起点</li>
+<li>绘图工具.stroke()<br>这个方法用来将当前路径下所有绘制的内容，进行描边</li>
+<li>绘图工具.fill()<br>这个方法用来将当前路径下所有绘制的内容，进行填充 （只填充封闭的图形，遵守非零环绕原则）</li>
+<li>绘图工具.closePath()<br>这个方法用来闭合图形，其实就是将最后一次lineTo的点，和最后一次moveTo的点连接起来</li>
+<li>绘图工具.beginPath()<br>这个方法用来开启新的路径，每当要换一种新的绘图方式，或者绘图状态（颜色，样式。。。）的时候，就需要开启一个新的路径</li>
+</ol>
+<h2 id="非零环绕原则"><a href="#非零环绕原则" class="headerlink" title="非零环绕原则"></a>非零环绕原则</h2><p>当绘图进行填充的时候，判断指定的封闭区域要不要被填充，只需要从该区域从任意方向画出一条直线，判断经过该直线的方法相反的线段的数量是否相等，如果相等，那么这个区域不被填充，反之要被填充</p>
+<h3 id="使用该原则绘制镂空的图形"><a href="#使用该原则绘制镂空的图形" class="headerlink" title="使用该原则绘制镂空的图形"></a>使用该原则绘制镂空的图形</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. 获取canvas标签</span></div><div class="line">   <span class="keyword">var</span> cas = <span class="built_in">document</span>.querySelector(<span class="string">"#c"</span>);</div><div class="line">   <span class="comment">//2. 使用canvas标签获取绘图工具</span></div><div class="line">   <span class="keyword">var</span> ctx = cas.getContext(<span class="string">"2d"</span>);</div><div class="line"></div><div class="line">   ctx.lineWidth = <span class="number">20</span>;</div><div class="line"></div><div class="line">   ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">   ctx.lineTo(<span class="number">200</span>, <span class="number">100</span>);</div><div class="line">   ctx.lineTo(<span class="number">200</span>, <span class="number">200</span>);</div><div class="line">   ctx.lineTo(<span class="number">100</span>, <span class="number">200</span>);</div><div class="line">   ctx.closePath();</div><div class="line">   ctx.stroke();</div></pre></td></tr></table></figure>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>形象： 两张纸<br>每次绘制的内容，都是在一个路径下，当执行stroke或者fill方法的时候，会将当前路径下所有的内容，按照当前路径设置的状态（、。。）绘制到屏幕上!</p>
+<h2 id="线型相关的属性"><a href="#线型相关的属性" class="headerlink" title="线型相关的属性"></a>线型相关的属性</h2><ol>
+<li>绘图工具.lineWidth       设置线宽  </li>
+<li>绘图工具.strokeStyle     设置描边的颜色  css颜色格式都接收</li>
+<li>绘图工具.fillStyle       设置填充的颜色  同上</li>
+<li>绘图工具.lineCap         设置线两端的样式  square round butt</li>
+<li>绘图工具.lineJoin        设置两条线相交的拐点的样式 round bevel miter</li>
+<li>绘图工具.setLineDash     设置虚线的宽度，这是一个方法，传递的参数是一个数组，数组中每一个元素都表示宽度，数组中的所有元素会被循环着依次应用虚线中的每一段上， 如果要设置为实现，就传一个空数组</li>
+<li>绘图工具.getLineDash     获取虚线设置的数组  如果是实线 获取到的就是一个空数组</li>
+<li>绘图工具.lineDashOffset  设置虚线的偏移量 正值向左 负值向右</li>
+</ol>
+<h2 id="渐变色"><a href="#渐变色" class="headerlink" title="渐变色"></a>渐变色</h2><p>将直线分成由一个个像素点组成线。<br>将每一个像素点设置为不同的颜色，即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;canvas width=<span class="string">"800"</span> height=<span class="string">"600"</span> id=<span class="string">"cas"</span>&gt;</div><div class="line">&lt;<span class="regexp">/canvas&gt;</span></div><div class="line"><span class="regexp">&lt;script&gt;</span></div><div class="line"><span class="regexp">	var cas = document.querySelector("#cas");</span></div><div class="line"><span class="regexp">    /</span><span class="regexp">/获取绘图工具</span></div><div class="line"><span class="regexp">    var cx = cas.getContext("2d");</span></div><div class="line"><span class="regexp">    cx.lineWidth = 40;</span></div><div class="line"><span class="regexp">    var length = 600;</span></div><div class="line"><span class="regexp">    var x = 100;</span></div><div class="line"><span class="regexp">    var y = 100;</span></div><div class="line"><span class="regexp">    for (var i = 0; i &lt; length; i++) &#123;</span></div><div class="line"><span class="regexp">        cx.beginPath();</span></div><div class="line"><span class="regexp">        /</span><span class="regexp">/设置绘边颜色</span></div><div class="line"><span class="regexp">        cx.strokeStyle = "rgb(" + Math.round((255 /</span> length) * i) + <span class="string">",0,0)"</span>;</div><div class="line">        cx.moveTo(x + i, y);</div><div class="line">        cx.lineTo(x + i + <span class="number">1</span>, y);</div><div class="line">        cx.stroke();</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="曲线"><a href="#曲线" class="headerlink" title="曲线"></a>曲线</h2><p>为每一个x对应一个y<br>最后将所有的x,y对应的点连接起来组成的就是对应x和y关系的曲线了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.0 绘制正弦曲线</span></div><div class="line">    <span class="comment">//var y=sinx;</span></div><div class="line">    <span class="comment">//起点</span></div><div class="line">    cx.moveTo(<span class="number">0</span>, <span class="built_in">Math</span>.sin(<span class="number">0</span>));</div><div class="line">    cas.width = <span class="number">800</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; cas.width; i++) &#123;</div><div class="line">        <span class="keyword">var</span> x = i;</div><div class="line">        <span class="keyword">var</span> y = <span class="built_in">Math</span>.sin(i / <span class="number">10</span>) * <span class="number">200</span> + <span class="number">200</span>;</div><div class="line">        cx.lineTo(x, y);</div><div class="line">    &#125;</div><div class="line">    cx.stroke();</div><div class="line"></div><div class="line"><span class="comment">//2.0 绘制余弦曲线</span></div><div class="line">    <span class="comment">//y=cosx;</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; cas.width; i++) &#123;</div><div class="line">        <span class="keyword">var</span> x = i;</div><div class="line">        <span class="keyword">var</span> y = <span class="built_in">Math</span>.cos(i / <span class="number">20</span>) * <span class="number">200</span> + <span class="number">200</span>;</div><div class="line">        cx.lineTo(x, y);</div><div class="line">    &#125;</div><div class="line">    cx.stroke();</div><div class="line"></div><div class="line"><span class="comment">//3.0 绘制正切函数的曲线</span></div><div class="line">    <span class="comment">//y=tanx</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; cas.width; i++) &#123;</div><div class="line">        <span class="keyword">var</span> x = i;</div><div class="line">        <span class="keyword">var</span> y = <span class="built_in">Math</span>.tan(i / <span class="number">40</span>) * <span class="number">100</span> + <span class="number">200</span>;</div><div class="line">        cx.lineTo(x, y);</div><div class="line">    &#125;</div><div class="line">    cx.stroke();</div></pre></td></tr></table></figure>
+<h2 id="绘制画布中的点"><a href="#绘制画布中的点" class="headerlink" title="绘制画布中的点"></a>绘制画布中的点</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. 获取canvas标签</span></div><div class="line">   <span class="keyword">var</span> cas = <span class="built_in">document</span>.querySelector(<span class="string">"#c"</span>);</div><div class="line">   <span class="comment">//2. 使用canvas标签获取绘图工具</span></div><div class="line">   <span class="keyword">var</span> ctx = cas.getContext(<span class="string">"2d"</span>); </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawPoint</span>(<span class="params">x, y, width</span>)</span>&#123;</div><div class="line">       ctx.beginPath();  <span class="comment">//为了防止我们画点影响到比人</span></div><div class="line">       width = width || <span class="number">4</span>;</div><div class="line">       ctx.moveTo(x - width / <span class="number">2</span>, y - width / <span class="number">2</span>);</div><div class="line">       ctx.lineTo(x + width / <span class="number">2</span>, y - width / <span class="number">2</span>);</div><div class="line">       ctx.lineTo(x + width / <span class="number">2</span>, y + width / <span class="number">2</span>);</div><div class="line">       ctx.lineTo(x - width / <span class="number">2</span>, y + width / <span class="number">2</span>);</div><div class="line">       ctx.closePath();</div><div class="line">       ctx.fill();</div><div class="line">       ctx.beginPath();  <span class="comment">//为了防止比人影响到我们</span></div><div class="line">   &#125;</div><div class="line"></div><div class="line">    drawPoint(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    drawPoint(<span class="number">200</span>, <span class="number">100</span>);</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-08-30T08:26:45.625Z" itemprop="dateUpdated">2017-08-30 16:26:45</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2017/08/30/Canvas的基本使用/" target="_blank" rel="external">zkh7809956.github.io/2017/08/30/Canvas的基本使用/</a>
+        
+    </div>
+    <footer>
+        <a href="zkh7809956.github.io">
+            <img src="/img/avater.jpg" alt="赵坤鸿">
+            赵坤鸿
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas的基本使用/">canvas的基本使用</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=zkh7809956.github.io/2017/08/30/Canvas的基本使用/&title=《Canvas的基本使用》 — 赵牧一的象牙塔&pic=zkh7809956.github.io/img/avater.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=zkh7809956.github.io/2017/08/30/Canvas的基本使用/&title=《Canvas的基本使用》 — 赵牧一的象牙塔&source=华华有颗坚强的心--王者五集团上海地区总代理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=zkh7809956.github.io/2017/08/30/Canvas的基本使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Canvas的基本使用》 — 赵牧一的象牙塔&url=zkh7809956.github.io/2017/08/30/Canvas的基本使用/&via=zkh7809956.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=zkh7809956.github.io/2017/08/30/Canvas的基本使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/29/js异步编程的4中方法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js异步编程的4中方法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/weChat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/weChat.png" data-alipay="/img/Aplipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>赵坤鸿 &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=zkh7809956.github.io/2017/08/30/Canvas的基本使用/&title=《Canvas的基本使用》 — 赵牧一的象牙塔&pic=zkh7809956.github.io/img/avater.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=zkh7809956.github.io/2017/08/30/Canvas的基本使用/&title=《Canvas的基本使用》 — 赵牧一的象牙塔&source=华华有颗坚强的心--王者五集团上海地区总代理" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=zkh7809956.github.io/2017/08/30/Canvas的基本使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Canvas的基本使用》 — 赵牧一的象牙塔&url=zkh7809956.github.io/2017/08/30/Canvas的基本使用/&via=zkh7809956.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=zkh7809956.github.io/2017/08/30/Canvas的基本使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=zkh7809956.github.io/2017/08/30/Canvas的基本使用/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '轻轻地我走了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '正如我轻轻地来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

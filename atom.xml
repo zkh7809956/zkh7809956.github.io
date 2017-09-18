@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="zkh7809956.github.io/"/>
-  <updated>2017-09-18T07:38:28.572Z</updated>
+  <updated>2017-09-18T07:40:04.582Z</updated>
   <id>zkh7809956.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>http服务与ajax编程</title>
+    <title>事件模型</title>
     <link href="zkh7809956.github.io/2017/09/18/%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B/"/>
     <id>zkh7809956.github.io/2017/09/18/事件模型/</id>
     <published>2017-09-18T08:59:08.000Z</published>
-    <updated>2017-09-18T07:38:28.572Z</updated>
+    <updated>2017-09-18T07:40:04.582Z</updated>
     
     <content type="html"><![CDATA[<h2 id="事件三个阶段"><a href="#事件三个阶段" class="headerlink" title="事件三个阶段"></a>事件三个阶段</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">      <span class="comment">// 一个事件由 3个阶段 组成</span></div><div class="line"><span class="comment">// 1 捕获阶段</span></div><div class="line"><span class="comment">// 2 处理目标对象阶段</span></div><div class="line"><span class="comment">// 3 冒泡阶段</span></div><div class="line"><span class="comment">// </span></div><div class="line"><span class="comment">// 只有通过 addEventListener 这个W3C标准的方法，才能够查看到完整的3个阶段</span></div><div class="line"><span class="comment">// 通过 attachEvent 只能看到 2 和 3 这两个阶段</span></div><div class="line"></div><div class="line"><span class="comment">// 捕获阶段触发事件的顺序：由外向里</span></div><div class="line"><span class="comment">// 冒泡阶段触发事件的顺序：由里向外 （主要讨论冒泡阶段）</span></div></pre></td></tr></table></figure>
 <img src="/2017/09/18/事件模型/事件冒泡和捕获的说明.jpg" alt="哈哈" title="哈哈">

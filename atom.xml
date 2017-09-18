@@ -413,7 +413,7 @@
     <link href="zkh7809956.github.io/2017/08/18/%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
     <id>zkh7809956.github.io/2017/08/18/模块化/</id>
     <published>2017-08-18T12:22:30.000Z</published>
-    <updated>2017-08-18T04:55:29.092Z</updated>
+    <updated>2017-09-18T01:22:37.084Z</updated>
     
     <content type="html"><![CDATA[<p>#模块化</p>
 <p>模块就是实现一个特定功能的一组代码，通常一个文件就是一个模块，我们前端模块化中，一个模块指的就是一个js文件。</p>
@@ -513,21 +513,6 @@
 <p>define声明时，第一个参数可以是该模块的名字，如果声明了模块名，在配置时，模块别名就不能够调整了。</p>
 <p><a href="http://www.2cto.com/kf/201410/344627.html" target="_blank" rel="external">requireJS的匿名模块和命名模块的差别和最佳实践</a></p>
 <p>【练习：使用jquery与jquery.color插件实现颜色的渐变效果】</p>
-<h1 id="博学谷环境搭建"><a href="#博学谷环境搭建" class="headerlink" title="博学谷环境搭建"></a>博学谷环境搭建</h1><h2 id="设置虚拟主机"><a href="#设置虚拟主机" class="headerlink" title="设置虚拟主机"></a>设置虚拟主机</h2><ul>
-<li>在C盘的www目录，新建了一个<code>boxuegu</code>文件夹</li>
-</ul>
-<ul>
-<li><code>D:\phpStudy\Apache\conf\extra</code>目录下找到<code>httpd-vhosts.conf</code>,打开编辑</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;VirtualHost *:<span class="number">80</span>&gt;</div><div class="line">    ServerAdmin webmaster@dummy-host.example.com</div><div class="line">    #根目录</div><div class="line">    DocumentRoot <span class="string">"C:\www\boxuegu"</span></div><div class="line">    #域名</div><div class="line">    ServerName boxuegu.com</div><div class="line">    #完整域名</div><div class="line">    ServerAlias www.boxuegu.com</div><div class="line">    ErrorLog <span class="string">"logs/dummy-host.example.com-error.log"</span></div><div class="line">    CustomLog <span class="string">"logs/dummy-host.example.com-access.log"</span> common</div><div class="line">&lt;<span class="regexp">/VirtualHost&gt;</span></div></pre></td></tr></table></figure>
-<ul>
-<li>修改host文件，<code>C:\Windows\System32\drivers\etc</code>找到<code>hosts</code>文件,添加以下内容</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> boxuegu.com</div><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> www.boxuegu.com</div></pre></td></tr></table></figure>
-<p><strong>注意：如果提示没有权限保存，先把hosts文件复制到桌面上，进行修改，修改完成之后，再拖回去，覆盖即可。</strong> </p>
-<ul>
-<li>重启服务器，进行测试</li>
-</ul>
 ]]></content>
     
     <summary type="html">
